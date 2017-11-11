@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS in SEQUENCES-OF-SUBSEQUENCES problems.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Andrew White.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -70,6 +70,20 @@ def run_test_integers():
                        ])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
+    expected = [3, 1, 4, 10, 1, 3, 30, -4]
+    answer = integers([(3, 1, 4),
+                       (10, 'hi', 'something'),
+                       [1, 2.54532, 3, 4.8888],
+                       'hello',
+                       [],
+                       ['oops'],
+                       [[19], [44]],
+                       [30, -4]
+                       ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
+
 
 
 def integers(sequence_of_sequences):
@@ -95,7 +109,7 @@ def integers(sequence_of_sequences):
       :rtype: list of int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -118,6 +132,12 @@ def integers(sequence_of_sequences):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
+    newList = []
+    for k in range(len(sequence_of_sequences)):
+        for j in range(len(sequence_of_sequences[k])):
+            if type(sequence_of_sequences[k][j]) == int:
+                newList.append(sequence_of_sequences[k][j])
+    return newList
 
 
 def run_test_big_letters():
@@ -211,6 +231,13 @@ def big_letters(sequence_of_sequences):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  12 minutes.
     # ------------------------------------------------------------------
+    newString = ''
+    for k in range(len(sequence_of_sequences)):
+        if type(sequence_of_sequences[k]) == str:
+            for j in range(len(sequence_of_sequences[k])):
+                if sequence_of_sequences[k][j].isupper():
+                    newString += sequence_of_sequences[k][j]
+    return newString
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

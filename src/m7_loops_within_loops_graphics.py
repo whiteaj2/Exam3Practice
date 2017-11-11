@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS in 2D GRAPHICS problems.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Andrew White.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -101,6 +101,29 @@ def hourglass(window, n, point, radius, color):
     #    DIFFICULTY:      8
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # ------------------------------------------------------------------
+    x_mid = point.x
+    x_start = point.x - 2*radius
+    y_start = point.y
+    for k in range(n, 0, -1):
+        if k%2 != 0:
+            for j in range(k):
+                circ = rg.Circle(rg.Point(x_start + 2*j*radius, y_start), radius)
+                circ.fill_color = color
+                circ.attach_to(window)
+                newLine = rg.Line(rg.Point(x_start - radius + 2*j*radius, y_start),
+                                    rg.Point(x_start + radius + 2*j*radius, y_start))
+                newLine.attach_to(window)
+                window.render()
+        else:
+            for j in range(k):
+                circ = rg.Circle(rg.Point(x_mid - radius + 2 * j * radius, y_start), radius)
+                circ.fill_color = color
+                circ.attach_to(window)
+                newLine = rg.Line(rg.Point(x_mid - radius + 2 * j * radius, y_start),
+                                  rg.Point(x_mid + radius + 2 * j * radius, y_start))
+                newLine.attach_to(window)
+                window.render()
+        y_start += 2*radius
 
 
 def run_test_many_hourglasses():
