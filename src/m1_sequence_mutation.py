@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS, SEQUENCES and MUTATION  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Andrew White.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -69,6 +69,13 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
+    count = 1
+    for k in range(len(tuple_of_lists)):
+        for j in range(len(tuple_of_lists[k])):
+            if tuple_of_lists[k][j] == 0:
+                tuple_of_lists[k][j] = count
+                count += 1
+
 
 
 # ----------------------------------------------------------------------
